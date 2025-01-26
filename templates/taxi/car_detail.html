@@ -16,9 +16,9 @@
   <h1>
     Drivers
     {% if car in user.cars.all %}
-      <a class="btn btn-danger link-to-page" href="{% url 'taxi:driver-delete-car' pk=car.id %}">Delete me from this car</a>
+      <a class="btn btn-danger link-to-page" href="{% url 'taxi:remove-driver-from-car' pk=car.id %}">Delete me from this car</a>
     {% else %}
-      <a class="btn btn-success link-to-page" href="{% url 'taxi:driver-create-car' pk=car.id %}">Assign me to this car</a>
+      <a class="btn btn-success link-to-page" href="{% url 'taxi:assign-driver-to-car' pk=car.id %}">Assign me to this car</a>
     {% endif %}
   </h1>
   <hr>

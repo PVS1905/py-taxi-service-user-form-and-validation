@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
@@ -66,7 +67,6 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     form_class = CarForm
-    # fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
 
@@ -122,6 +122,5 @@ def remove_driver_from_car(request, pk):
     car = get_object_or_404(Car, pk=pk)
     # car = Car.objects.get(pk=pk)
     user = request.user
-
     car.drivers.remove(user)
     return redirect("taxi:car-detail", pk=car.id)

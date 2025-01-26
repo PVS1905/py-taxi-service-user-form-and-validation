@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
-  <h3>Delete Car</h3>
-  <p>Are you want to delete the car: {{ driver }}</p>
+  <h3>Delete Driver</h3>
+  <p>Are you want to delete the driver: {{ driver }}</p>
   <form action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}

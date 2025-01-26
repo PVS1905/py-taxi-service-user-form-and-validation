@@ -29,19 +29,10 @@ class DriverCreationForm(LicenseNumberValidationMixin, UserCreationForm):
 
 
 class DriverLicenseUpdateForm(LicenseNumberValidationMixin, forms.ModelForm):
-    license_number = forms.CharField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-
     class Meta:
         model = Driver
         fields = (
-            "username",
-            "first_name",
-            "last_name",
-            "email",
-            "license_number"
+            "license_number",
         )
 
 
